@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:8111
--- Generation Time: Apr 06, 2021 at 08:03 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.34
+-- Host: localhost
+-- Generation Time: Apr 17, 2021 at 06:45 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,15 +31,19 @@ CREATE TABLE `login` (
   `up_mail` varchar(30) NOT NULL,
   `full_name` text NOT NULL,
   `student_num` text NOT NULL,
-  `degree_program` text NOT NULL
+  `degree_program` text NOT NULL,
+  `Type` int(1) NOT NULL,
+  `Password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`up_mail`, `full_name`, `student_num`, `degree_program`) VALUES
-('aacacayuran@up.edu.ph', 'Alexis Cacayuran', '2018-03829', 'BS Computer Science');
+INSERT INTO `login` (`up_mail`, `full_name`, `student_num`, `degree_program`, `Type`, `Password`) VALUES
+('aacacayuran@up.edu.ph', 'Alexis Cacayuran', '2018-03829', 'BS Computer Science', 0, 'student1'),
+('admin@up.edu.ph', 'Null', '0000-00000', 'Null', 1, 'admin0'),
+('ebabad2@up.edu.ph', 'Abad, Erick, B', '2013-53857', 'BS Computer Science', 0, 'student2');
 
 -- --------------------------------------------------------
 
@@ -97,15 +101,6 @@ CREATE TABLE `respondents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `respondents`
---
-
-INSERT INTO `respondents` (`id`, `up_mail`, `question_id`, `rate`) VALUES
-(2, 'aacacayuran@up.edu.ph', 0, 1),
-(3, 'aacacayuran@up.edu.ph', 0, 1),
-(4, 'aacacayuran@up.edu.ph', 0, 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -143,7 +138,7 @@ ALTER TABLE `questionnaire`
 -- AUTO_INCREMENT for table `respondents`
 --
 ALTER TABLE `respondents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- Constraints for dumped tables
