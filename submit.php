@@ -1,13 +1,13 @@
-	<?php
+<?php
 	include_once('connection.php');
 	
 	$a = $_POST['id'];	
-	for ($j=1;$j<=9;$j++){
+	for ($j = 1; $j <= 9; $j++){
 		$carry1 = "question_id$j";
 		$carry2 = "rate$j";
 		$b = $_POST[$carry1];
 		$c = $_POST[$carry2];
-		$insert = "INSERT INTO respondents (id, up_mail, question_id, rate) VALUES (null, '$a','$b','$c')";
+		$insert = "INSERT INTO respondents (id, question_id, rate) VALUES ('$a','$b','$c')";
 		if ($conn->query($insert) === TRUE){
 			//echo "New record created succesfully";
 		}else{
