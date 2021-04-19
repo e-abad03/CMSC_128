@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Exit Survey Program</title>
@@ -6,19 +5,24 @@
 <body>
 <?php
 	include_once('connection.php');
+	
 	session_start();
 	if(!isset($_SESSION['username'])){
 		session_destroy();
-		header("Location: login_redirect.php");
+		header("Location: login.php");
 		die();
 	}
 	
 	if(isset($_POST['logout'])){
 		session_destroy();
-		header("Location: ./login_redirect.php");
+		header("Location: ./login.php");
 		exit;
 	}
+?>
 
+<h>I. Survey Degree Program</h>
+
+<?php
 
 $id = $_GET['id'];
 $select = "select * from questionnaire";
@@ -52,8 +56,8 @@ if(mysqli_num_rows($result)>0){
 mysqli_close($conn);
 ?>
 
-		<input type="hidden" name="id" value="<?php echo $id?>">
-		<input type="submit" value="Submit">
+	<input type="hidden" name="id" value="<?php echo $id?>">
+	<input type="submit" value="Submit">
 	</form>
 	<br>
 	<form action="" method="post">
