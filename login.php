@@ -61,8 +61,8 @@ session_start();
 
     <!-- Login Form -->
     <form action = "" method = "post">
-      <input type="text" id="login" class="fadeIn second" name="username" placeholder="UP Mail">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Email">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
