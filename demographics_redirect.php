@@ -18,7 +18,7 @@ $a = $_GET['id'];
 
 $update = "UPDATE demographics SET up_mail = (SELECT up_mail FROM login WHERE login.id = demographics.id)";
 	if ($conn->query($update) === TRUE){
-			header("location: index.php?id=".$a."");
+			header("location: survey1.php?id=".$a."");
 	}else{
 		echo "Error: ".$update."<br>".$conn->error."<br><br>";
 
